@@ -1,0 +1,753 @@
+/* Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+/* Variables */
+  :root{
+    --BodyFontsFamily: 'Montserrat', sans-serif;
+    --HeadingsFontsFamily: 'Grand Hotel', cursive;
+    --MainColor: #ffc200;
+    --AltColor: #333;
+    --MainTransition: 0.4s;
+    --MainPaddingTop: 100px;
+    --MainPaddingBottom: 100px;
+  }
+/* Global Rules */
+  *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    background-color: var(--AltColor);
+    color: var(--MainColor);
+  }
+  body{
+    font-family: var(--BodyFontsFamily);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  i {
+    cursor: pointer;
+  }
+  h1,h2,h3 {
+    font-family: var(--HeadingsFontsFamily);
+    font-weight: 400;
+  }
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+/* Small Screen */
+  @media (min-width: 768px) {
+    .container{
+      width: 750px;
+    }
+  }
+/* Medium Screen */
+  @media (min-width: 992px) {
+    .container{
+      width: 970px;
+    }
+  }
+/* Lager Screen*/
+  @media (min-width: 1200px) {
+    .container{
+      width: 1170px;
+    }
+  }
+/* Styling The Header */
+  header {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
+  header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    height: 100.42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-img {
+    width: 160px;
+  }
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  .main-nav > ul {
+    display: flex;
+  }
+  .main-nav > ul a,
+  .search-icon {
+    height: 100.42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    transition: var(--MainTransition);
+  }
+  .main-nav > ul a:hover,
+  .search-icon:hover {
+    color: var(--MainColor);
+  }
+  .main-nav > ul a {
+    padding: 0 20px;
+    font-size: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .main-nav > ul a:hover{
+    background-color: #444;
+  }
+  .main-nav > ul a::before {
+    content: "";
+    position: absolute;
+    border-top: 4px dotted var(--MainColor) ;
+    width: 100%;
+    top: 0;
+    left: -100%;
+    transition: var(--MainTransition);
+  }
+  .main-nav > ul a:hover::before {
+    left: 0;
+  }
+/* ---- Making The Header Section Responsive ---- */
+  @media (max-width: 991px) {
+    .container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .logo {
+      width: 100%;
+    }
+    .logo-img {
+      width: auto;
+    }
+    .main-nav {
+      margin: 0 auto;
+    }
+  }
+  @media (max-width: 767px) {
+    .search-icon {
+      display: none;
+    }
+    .logo,
+    .main-nav > ul a {
+      height: 80px;
+    }
+    .main-nav > ul a {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  @media (max-width: 475px) {
+    .main-nav > ul a {
+      font-size: 12px;
+      padding: 10px 6px;
+    }
+  }
+/* Styling The Landing */
+  .landing {
+    background: url(../Images/Landing.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+  }
+  .landing-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .landing-title {
+    color: var(--MainColor);
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+  .landing-des {
+    color: white;
+    font-size: 1.47rem;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+/* ------ Components (Button) ------ */
+  .order-button {
+    display: block;
+    color: var(--AltColor);
+    background: linear-gradient(to left, var(--MainColor) 50%, #444 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    text-transform: uppercase;
+    padding: 10px 40px;
+    width: fit-content;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-top: 2rem;
+    transition: var(--MainTransition);
+  }
+  .order-button:hover {
+    background-position: left bottom;
+    color: var(--MainColor);
+  }
+/* ---- Making The Landing Section Responsive ---- */
+  @media (max-width: 991px) {
+    .landing-text {
+      transform: translate(-50%, -40%);
+      text-align: center;
+    }
+    .landing-title {
+      font-size: 2.4rem;
+    }
+    .landing-des {
+      font-size: 1.2rem;
+    }
+    .order-button {
+      margin: 32px auto 0;
+    }
+  }
+  @media (max-width: 575px) {
+    .landing-des {
+      font-size: 0.9rem;
+    }
+    .order-button {
+      padding: 10px 20px;
+    }
+  }
+/* Components (Section-Heading) */
+  .section-heading {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .section-heading h2 {
+    font-size: 5rem;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .section-heading p {
+    font-size: 1.3125rem;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.4;
+  }
+/* Styling The Product Section */
+  .product {
+    padding-top: var(--MainPaddingTop);
+    padding-bottom: var(--MainPaddingBottom);
+  }
+  .product-title {
+    font-size: 4rem !important;
+  }
+  .product-title,
+  .product-des {
+    color: var(--AltColor);
+  }
+  .product-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  .product-container img {
+    width: 200px;
+    height: 200px;
+    transition: var(--MainTransition);
+    cursor: pointer;
+  }
+  .product-container img:hover {
+    transform: scale(1.075);
+  }
+  .product-container > .box {
+    flex-basis: calc(85% / 3);
+    text-align: center;
+  }
+  .food-title {
+    font-size: 2.5rem;
+    margin: 12px 0;
+    font-weight: 400;
+    color: var(--AltColor);
+  }
+  .food-des {
+    line-height: 1.3;
+  }
+  /* ---- Making The Product Section Responsive ---- */
+  @media (max-width: 991px) {
+    .product-container {
+      flex-direction: column;
+    }
+    .food-des {
+      max-width: 300px;
+    }
+  }
+  @media (max-width: 767px) {
+    .product-title {
+      font-size: 3rem;
+    }
+    .product-des {
+      font-size: 1.2rem;
+    }
+  }
+/* Styling The Promo Section */
+  .promo {
+    padding-top: var(--MainPaddingTop);
+    padding-bottom: var(--MainPaddingBottom);
+  }
+/* Styling The Top Promo */
+  .top-promo{
+    background: url(../Images/TopBackgroundStats.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--AltColor);
+    width: 100%;
+    min-height: 95vh;
+    position: relative;
+  }
+  .top-promo > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .top-promo .container > div {
+    flex-basis: 50%;
+  }
+  .top-promo-img > img{
+    width: 400px;
+    height: 400px;
+  }
+  .top-promo .section-heading {
+    text-align: unset;
+    margin-bottom: unset;
+  }
+  .top-promo-title {
+    color: var(--MainColor);
+  }
+  .top-promo-des {
+    color: white;
+    max-width: 525px !important ;
+    margin: unset !important;
+  }
+  .promo .order-button {
+    padding: 14px 60px;
+    font-size: 1.125rem;
+  }
+  .promo .order-button::first-letter {
+    margin-right: 2px;
+  }
+/* Styling The Middle (Stats) Promo */
+  .stats-promo {
+    background: url(../Images/MiddleBackgroundStats.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #303030;
+    width: 100%;
+    min-height: 95vh;
+    padding-top: var(--MainPaddingTop);
+    padding-bottom: var(--MainPaddingBottom);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 1400px) {
+    .stats-promo {
+      min-height: 115vh;
+    }
+  }
+  .stats-title {
+    color: var(--MainColor);
+  }
+  .stats-des {
+    color: white;
+    max-width: 725px !important;
+  }
+  .stats-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .stat-circle {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid white;
+    background: linear-gradient(to left, #303030 50%, var(--MainColor) 50%);
+    background-position: right bottom;
+    background-size: 200% 100%;
+    cursor: pointer;
+    transition: var(--MainTransition);
+  }
+  .stat-circle:hover {
+    background-position: left bottom;
+    border-color: #ffc200;
+  }
+  .stat-num {
+    color: var(--MainColor);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    transition: var(--MainTransition);
+  }
+  .stat-title {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 700;
+    transition: var(--MainTransition);
+  }
+  .stat-circle:hover .stat-num,
+  .stat-circle:hover .stat-title{
+    color: var(--AltColor);
+  }
+/* Styling The Bottom Promo */
+  .bottom-promo {
+    background: url(../Images/BottomBackgroundStats.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--AltColor);
+    width: 100%;
+    height: 95vh;
+    position: relative;
+  }
+  .bottom-promo > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .bottom-promo .container > div {
+    flex-basis: 50%;
+  }
+  .bottom-promo-img {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .bottom-promo-img img{
+    width: 400px;
+    height: 400px;
+  }
+  .bottom-promo .section-heading {
+    text-align: unset;
+    margin-bottom: unset;
+  }
+  .bottom-promo-title {
+    color: var(--MainColor);
+  }
+  .bottom-promo-des {
+    color: white;
+    max-width: 475px !important;
+    margin: unset !important;
+    font-size: 1.535rem !important;
+  }
+/* ---- Making The Promo Section Responsive ---- */
+  @media (max-width: 991px) {
+    .promo {
+      padding-bottom: calc(var(--MainPaddingBottom) + 50px);
+    }
+    .top-promo {
+      background-size: contain;
+    }
+    .top-promo > .container {
+      top: 40%;
+    }
+    .top-promo > .container,
+    .stats-container, 
+    .bottom-promo > .container{
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+    }
+    .top-promo .section-heading,
+    .bottom-promo .section-heading{
+      text-align: center;
+    }
+    .top-promo-img,
+    .bottom-promo-img {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 767px) {
+    .top-promo {
+      min-height: 85vh;
+    }
+    .top-promo-img > img,
+    .bottom-promo-img > img {
+      width: 325px;
+      height: 325px;
+    }
+    .promo .section-heading h2 {
+      font-size: 3rem;
+    }
+    .promo .section-heading p {
+      font-size: 1.125rem;
+    }
+    .promo .order-button {
+      padding: 12px 30px;
+    }
+  }
+  @media (max-width: 375px) {
+    .top-promo-img > img,
+    .bottom-promo-img > img {
+      width: 250px;
+      height: 250px;
+    } 
+  }
+/* Styling The About Section */
+  .about {
+    padding-top: var(--MainPaddingTop);
+    padding-bottom: var(--MainPaddingBottom);
+    background-image: url(../Images/BackgroundAboutSection.png);
+    background-size: cover;
+    min-height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about .section-heading {
+    margin-bottom: unset;
+  }
+  .about-des {
+    font-size: 2.5rem !important;
+    max-width: 825px !important;
+    margin-bottom: 20px !important;
+    color: var(--AltColor);
+  }
+  .about-title {
+    margin-bottom: unset !important;
+    color: var(--AltColor);
+    font-size: 4rem !important;
+  }
+/* ---- Making The About Section Responsive ---- */ 
+  @media (max-width: 991px) {
+    .about {
+      min-height: 80vh;
+    }
+    .about-des {
+      font-size: 1.75rem !important;
+    }
+  }
+  @media (max-width: 375px) {
+    .about-title {
+      font-size: 3.5rem !important;
+    }
+    .about-des {
+      font-size: 1.125rem !important;
+    }
+  }
+/* Styling The Subscribe Section */
+  .subscribe {
+    padding-top: var(--MainPaddingTop);
+    padding-bottom: var(--MainPaddingBottom);
+    background-image: url(../Images/SubBackgroundSection.png);
+    background-size: cover;
+    min-height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sub-title {
+    color: var(--AltColor);
+  }
+  .sub-des {
+    font-size: 1.8rem !important;
+    max-width: 825px !important;
+    color: #333;
+  }
+  .sub-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  .sub-form input[type="email"] {
+    padding: 14px 20px;
+    border-radius: 2px;
+    border: none;
+    background-color: white;
+    width: 400px;
+    color: #333;
+  }
+  .sub-form input[type="email"]:focus {
+    outline: none;
+  }
+  .sub-form input[type="email"]::placeholder {
+    color: #777;
+    font-size: 18px;
+    transition: opacity var(--MainTransition);
+  }
+  .sub-form input[type="email"]:focus::placeholder {
+    opacity: 0;
+  }
+  .sub-form input[type="submit"] {
+    padding: 14px 20px;
+    background-color: var(--MainColor);
+    color: var(--AltColor);
+    font-weight: 700;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: var(--MainTransition);
+  }
+  .sub-form input[type="submit"]:hover {
+    box-shadow: inset 0 0 0 30px var(--AltColor);
+    color: var(--MainColor);
+  }
+/* ---- Making The Subscribe Section Responsive ---- */
+  @media (max-width: 599px){
+    .sub-form {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sub-form input[type="email"] {
+      width: 95%;
+      margin: 0 auto;
+    }
+    .sub-des {
+      font-size: 1.125rem !important;
+    }
+  }
+/* Styling The Footer */
+  footer {
+    background-color: var(--AltColor);
+    padding-top: calc(var(--MainPaddingTop) + 100px);
+  }
+  footer > .container {
+    display: flex;
+    justify-content: space-around;
+  }
+  footer .fl-title {
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.3125rem;
+    font-weight: 700;
+  }
+  .footer-des {
+    color: #f1f1f1;
+    max-width: 400px;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  .social {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .social i {
+    height: 40px;
+    width: 40px;
+    color: var(--AltColor);
+    background-color: white;
+    border: 2px solid var(--AltColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: var(--MainTransition);
+  }
+  .social i:hover {
+    color: var(--color);
+    background-color: transparent;
+    border-color: var(--color);
+    transform: scale(1.075);
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .links > a {
+    color: #f1f1f1;
+    transition: var(--MainTransition);
+  }
+  .links > a:hover {
+    color: var(--MainColor);
+  }
+  footer .copyright {
+    color: white; 
+    border-top: 1px solid #555;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 25px 0;
+    margin: 80px 0 0;
+  }
+  footer .copyright .heart {
+    color: red;
+    font-size: 17px;
+  }
+  footer .copyright .copy {
+    display: block;
+    margin-top: 10px;
+  }
+  footer .copyright .copy::before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f1f9";
+    font-weight: 900;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+/* ---- Making The Footer Responsive ---- */
+  @media (max-width: 991px) {
+    footer .container{
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+    .footer-box {
+      text-align: center;
+    }
+    .social{
+      justify-content: center;
+    }
+    .footer-links {
+      text-align: center;
+    }
+  }
+  @media (max-width: 375px) {
+    .footer-des {
+      font-size: 1rem;
+    }
+    .copy {
+      font-size: 0.825rem;
+    }
+  }
