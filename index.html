@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Render All Elements Normally -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <!-- CSS File -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- CSS Style File -->
+    <link rel="stylesheet" href="css/style.css" />
     <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css" />
     <meta 
     http-equiv="X-UA-Compatible" 
     content="IE=edge"
@@ -24,27 +24,31 @@
     <title>NBH Restaurant</title>
   </head>
   <body>
-    <!-- Header -->
+    <!-- Header Section -->
     <header>
       <div class="container">
         <a href="#" class="logo">
           <img src="Images/Logo.png" alt="Logo" class="logo-img">
         </a>
         <nav class="main-nav">
+          <input type="checkbox" id="burger" class="check" />
+          <label for="burger" class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
           <ul>
             <li><a href="#Home">Home</a></li>
             <li><a href="#Product">Product</a></li>
             <li><a href="#Promo">Promo</a></li>
             <li><a href="#About">About</a></li>
             <li><a href="#Contact">Contact</a></li>
+            <li class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></li>
           </ul>
-          <div class="search-icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
         </nav>
       </div>
     </header>
-    <!-- Landing -->
+    <!-- Landing Section -->
     <div class="landing">
       <div class="container">
         <div class="landing-text">
@@ -182,7 +186,7 @@
         </form>
       </div>
     </section>
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
       <div class="container">
         <div class="footer-box">
@@ -228,10 +232,10 @@
           </div>
         </div>
       </div>
-      <p class="copyright">
-        made with <span class="heart">♥</span> by abdulrahman
-        <span class="copy">2022 NBH restaurant all right reserved</span>
-      </p>
+      <div class="copyright-container">
+        <p class="rights">&copy; 2022 NBH all right reserved</p>
+        <p class="coded">coded by <a href="https://github.com/AbdulrahmanFE" target="_blank" rel="noopener noreferrer" class="author">ABDULRAHMAN</a></p>
+      </div>
     </footer>
   </body>
 </html>

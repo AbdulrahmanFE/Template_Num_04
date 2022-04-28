@@ -79,93 +79,135 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    min-height: 100px;
   }
-  .logo {
-    height: 100.42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .logo-img {
+  header .logo-img {
     width: 160px;
   }
-  .main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
+  header .main-nav .check {
+    display: none;
   }
-  .main-nav > ul {
-    display: flex;
+  header .main-nav .check + .burger {
+    z-index: 1;
+    width: 30px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    cursor: pointer;
   }
-  .main-nav > ul a,
-  .search-icon {
-    height: 100.42px;
+  header .main-nav .check + .burger span {
+    height: 4px;
+    width: 100%;
+    background-color: #FFF;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+    transition: 0.3s;
+  }
+  header .main-nav .check + .burger span:first-child {
+    top: 0;
+  }
+  header .main-nav .check:checked + .burger span:first-child {
+    top: 50%;
+    transform: rotate(45deg);
+    background-color: var(--MainColor);
+  }
+  header .main-nav .check + .burger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  header .main-nav .check:checked + .burger span:nth-child(2) {
+    opacity: 0;
+  }
+  header .main-nav .check + .burger span:last-child {
+    bottom: 0;
+  }
+  header .main-nav .check:checked + .burger span:last-child {
+    top: 50%;
+    transform: rotate(-45deg);
+    background-color: var(--MainColor);
+  }
+  header .main-nav > ul {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+  }
+  header .main-nav > ul a,
+  header .search-icon {
     font-size: 20px;
     color: white;
     transition: var(--MainTransition);
   }
-  .main-nav > ul a:hover,
-  .search-icon:hover {
+  header .main-nav > ul a:hover,
+  header .search-icon:hover {
     color: var(--MainColor);
   }
-  .main-nav > ul a {
-    padding: 0 20px;
+  header .main-nav > ul a {
+    display: block;
+    padding: 40px 20px;
     font-size: 16px;
     overflow: hidden;
     position: relative;
   }
-  .main-nav > ul a:hover{
-    background-color: #444;
+  header .main-nav > ul a:hover{
+    background-color: #3a3a3a;
+    border-radius: 0 0 8px 8px;
   }
-  .main-nav > ul a::before {
+  header .main-nav > ul a::before {
     content: "";
     position: absolute;
-    border-top: 4px dotted var(--MainColor) ;
+    border-top: 4px dotted var(--MainColor);
     width: 100%;
     top: 0;
     left: -100%;
     transition: var(--MainTransition);
   }
-  .main-nav > ul a:hover::before {
+  header .main-nav > ul a:hover::before {
     left: 0;
   }
-/* ---- Making The Header Section Responsive ---- */
-  @media (max-width: 991px) {
-    .container {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .logo {
-      width: 100%;
-    }
-    .logo-img {
-      width: auto;
-    }
-    .main-nav {
-      margin: 0 auto;
-    }
+  header .search-icon {
+    margin-left: 20px;
   }
-  @media (max-width: 767px) {
-    .search-icon {
+/* ---- Making The Header Section Responsive ---- */
+  @media (min-width: 992px) {
+    header .check + .burger {
       display: none;
     }
-    .logo,
-    .main-nav > ul a {
-      height: 80px;
-    }
-    .main-nav > ul a {
-      font-size: 14px;
-      padding: 10px;
-    }
   }
-  @media (max-width: 475px) {
-    .main-nav > ul a {
-      font-size: 12px;
-      padding: 10px 6px;
+    @media (max-width: 991px) {
+    header .main-nav ul {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(17, 17, 17, 0.95);
+      border-radius: 0 0 4px 4px;
+      opacity: 0;
+      visibility: hidden;
+      z-index: -111;
+      transition: var(--MainTransition);
+    }
+    header .main-nav .check:checked ~ ul {
+      opacity: 1;
+      visibility: visible;
+      z-index: 111;
+    }
+    header .main-nav > ul a:hover {
+      background-color: unset;
+      border-radius: unset;
+    }
+    header .main-nav > ul a::before {
+      top: unset;
+      bottom: 0;
+    }
+    header .search-icon {
+      display: none;
     }
   }
 /* Styling The Landing */
@@ -645,8 +687,8 @@
   }
 /* Styling The Footer */
   footer {
-    background-color: var(--AltColor);
-    padding-top: calc(var(--MainPaddingTop) + 100px);
+    background-color: #222;
+    padding-top: var(--MainPaddingTop);
   }
   footer > .container {
     display: flex;
@@ -666,13 +708,13 @@
     line-height: 1.4;
     margin-bottom: 20px;
   }
-  .social {
+  footer .social {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
   }
-  .social i {
+  footer .social i {
     height: 40px;
     width: 40px;
     color: var(--AltColor);
@@ -685,47 +727,39 @@
     border-radius: 50%;
     transition: var(--MainTransition);
   }
-  .social i:hover {
+  footer .social i:hover {
     color: var(--color);
     background-color: transparent;
     border-color: var(--color);
-    transform: scale(1.075);
+    transform: translateY(-4px) rotate(1turn);
   }
-  .links {
+  footer .links {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
-  .links > a {
+  footer .links > a {
     color: #f1f1f1;
     transition: var(--MainTransition);
   }
-  .links > a:hover {
+  footer .links > a:hover {
     color: var(--MainColor);
   }
-  footer .copyright {
-    color: white; 
-    border-top: 1px solid #555;
+  footer .copyright-container {
+    color: #DDD;
+    border-top: 1px solid #444;
     text-transform: capitalize;
     text-align: center;
     padding: 25px 0;
-    margin: 80px 0 0;
+    margin: 50px 0 0;
   }
-  footer .copyright .heart {
-    color: red;
-    font-size: 17px;
+  footer .coded {
+    margin-top: 20px;
   }
-  footer .copyright .copy {
-    display: block;
-    margin-top: 10px;
-  }
-  footer .copyright .copy::before {
-    font-family: "Font Awesome 6 Free";
-    content: "\f1f9";
-    font-weight: 900;
-    margin-right: 5px;
-    font-size: 14px;
-  }
+  footer .coded .author {
+    color: #FFF;
+    font-weight: 700;
+}
 /* ---- Making The Footer Responsive ---- */
   @media (max-width: 991px) {
     footer .container{
