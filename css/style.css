@@ -149,12 +149,12 @@
     display: block;
     padding: 40px 20px;
     font-size: 16px;
+    border-radius: 0 0 8px 8px;
     overflow: hidden;
     position: relative;
   }
   header .main-nav > ul a:hover{
     background-color: #3a3a3a;
-    border-radius: 0 0 8px 8px;
   }
   header .main-nav > ul a::before {
     content: "";
@@ -177,15 +177,19 @@
       display: none;
     }
   }
-    @media (max-width: 991px) {
+  @media (max-width: 991px) {
+    header > .container {
+      min-height: 80px;
+    }
     header .main-nav ul {
       display: flex;
       align-items: stretch;
       flex-direction: column;
       position: absolute;
       top: 100%;
-      left: 0;
+      right: 15px;
       width: 100%;
+      max-width: 500px;
       background-color: rgba(17, 17, 17, 0.95);
       border-radius: 0 0 4px 4px;
       opacity: 0;
@@ -198,9 +202,17 @@
       visibility: visible;
       z-index: 111;
     }
-    header .main-nav > ul a:hover {
-      background-color: unset;
+    header .main-nav > ul a {
+      padding: 20px;
+      border-bottom: 1px solid #333;
       border-radius: unset;
+    }
+    header .main-nav > ul li:last-child a {
+      border-bottom: none;
+    }
+    header .main-nav > ul a:hover {
+      border-bottom-color: transparent;
+      background-color: unset;
     }
     header .main-nav > ul a::before {
       top: unset;
@@ -208,6 +220,11 @@
     }
     header .search-icon {
       display: none;
+    }
+  }
+  @media (max-width: 500px) {
+    header .main-nav ul {
+      right: 0;
     }
   }
 /* Styling The Landing */
@@ -767,21 +784,21 @@
       align-items: center;
       gap: 60px;
     }
-    .footer-box {
+    footer .footer-box {
       text-align: center;
     }
-    .social{
+    footer .social{
       justify-content: center;
     }
-    .footer-links {
+    footer .footer-links {
       text-align: center;
     }
   }
   @media (max-width: 375px) {
-    .footer-des {
+    footer .footer-des {
       font-size: 1rem;
     }
-    .copy {
+    footer .copy {
       font-size: 0.825rem;
     }
   }
